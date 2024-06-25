@@ -467,8 +467,8 @@ SourceResultType PipelineExecutor::GetData(DataChunk &chunk, OperatorSourceInput
 		auto &op = pipeline.operators[0].get();
 		if (op.type == PhysicalStreamingSample::TYPE) {
 			auto &cast_op = op.Cast<PhysicalStreamingSample>();
-			if (cast_op.method == SampleMethod::CHUNK_SAMPLE) {
-				chunk.chunk_sample_op.do_chunk_sample = true;
+			if (cast_op.method == SampleMethod::SYSTEM_SAMPLE) {
+				chunk.chunk_sample_op.do_system_sample = true;
 				chunk.chunk_sample_op.percentage = cast_op.percentage;
 			}
 		}
