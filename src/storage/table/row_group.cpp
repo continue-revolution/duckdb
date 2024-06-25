@@ -460,7 +460,7 @@ void RowGroup::TemplatedScan(TransactionData transaction, CollectionScanState &s
 		auto max_count = MinValue<idx_t>(STANDARD_VECTOR_SIZE, state.max_row_group_row - current_row);
 
 		// table sample blocks
-		if (result.chunk_sample_op.do_chunk_sample) {
+		if (result.chunk_sample_op.do_system_sample) {
 			if (state.random.NextRandom() > result.chunk_sample_op.percentage) {
 				NextVector(state);
 				continue;
